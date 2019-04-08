@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const Header = ({ players, title }) => {
+const Header = () => {
   //const { players, title } = props;
   return (
     <header>
