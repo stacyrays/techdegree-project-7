@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Header from "./Header";
 import Nav from "./Nav";
 import apiKey from "../config.js";
+import Gallery from "./Gallery";
 
 class App extends Component {
   render() {
@@ -9,6 +10,7 @@ class App extends Component {
       <div className="App">
         <Header />
         <Nav />
+        <Gallery />
       </div>
     );
   }
