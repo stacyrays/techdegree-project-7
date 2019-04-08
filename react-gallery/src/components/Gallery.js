@@ -1,16 +1,16 @@
-import React from "react";
-import GalleryItem from "./GalleryItem";
+import React, { Component } from "react";
+import GalleryItems from "./GalleryItems";
 
-const Gallery = () => {
+class Gallery extends Component {
   //const { players, title } = props;
-  return (
-    <div class="photo-container">
-      <h2>Results</h2>
-      <ul>
-        <GalleryItem />
-      </ul>
-    </div>
-  );
-};
+  render() {
+    return (
+      <div class="photo-container">
+        <h2>Results</h2>
+        <GalleryItems />
+      </div>
+    );
+  }
+}
 
 export default Gallery;
