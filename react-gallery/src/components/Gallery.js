@@ -2,11 +2,11 @@ import React, { Component } from "react";
 import GalleryItems from "./GalleryItems";
 
 class Gallery extends Component {
-  //const { players, title } = props;
   render() {
+    const { title } = this.props;
     return (
       <div className="photo-container">
-        <h2>Results</h2>
+        <h2>{title}</h2>
         <GalleryItems />
       </div>
     );

@@ -1,19 +1,21 @@
 import React from "react";
-//import { Route, NavLink, Redirect } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
-const Nav = () => {
+const Nav = props => {
   //const { players, title } = props;
   return (
     <nav class="main-nav">
       <ul>
         <li>
-          <a href="#">Cats</a>
+          <NavLink to="/cats" activeClassName="somethingElse">
+            Cats
+          </NavLink>
         </li>
         <li>
-          <a href="#">Dogs</a>
+          <NavLink to="/dogs">Dogs</NavLink>
         </li>
         <li>
-          <a href="#">Computers</a>
+          <NavLink to="/computers">Computers</NavLink>
         </li>
       </ul>
     </nav>

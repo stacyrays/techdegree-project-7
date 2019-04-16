@@ -6,14 +6,22 @@ class SearchForm extends Component {
   handleSubmit = e => {
     e.preventDefault();
     //this.props.addPlayer(this.playerInput.current.value);
+    this.props.searchTerm(this.searchInput.current.value);
+    console.log("here is the search input " + this.searchInput.current.value);
     //e.currentTarget.reset();
   };
 
   render() {
-    //console.log(this.playerInput);
+    //console.log("here is the search input " + this.searchInput);
     return (
       <form className="search-form" onSubmit={this.handleSubmit}>
-        <input type="search" name="search" placeholder="Search" required />
+        <input
+          type="search"
+          name="search"
+          placeholder="Search photos"
+          ref={this.searchInput}
+          required
+        />
         <button type="Submit" defaultValue="Search">
           <svg
             fill="#fff"
