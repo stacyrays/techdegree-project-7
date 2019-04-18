@@ -10,8 +10,6 @@ class App extends Component {
     searchTerm: "triceratops"
   };
 
-  //searchInput = React.createRef();
-
   handleSubmit = e => {
     e.preventDefault();
     //this.props.addPlayer(this.playerInput.current.value);
@@ -23,16 +21,8 @@ class App extends Component {
         searchTerm: newSearch
       };
     });
-    //this.props.history.push(path);
-    //e.currentTarget.reset();
   };
-  /*handleUpdateSearchTerm = searchTerm => {
-    this.setState(prevState => {
-      return {
-        searchTerm: searchTerm
-      };
-    });
-  };*/
+
   render() {
     fetch(
       `https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${
@@ -74,12 +64,15 @@ class App extends Component {
           </form>
           <Nav />
           <Switch>
-            <Route path="/:name" component={Gallery} />
             <Route path="/dogs" render={() => <Gallery title="Dogs" />} />
             <Route path="/cats" render={() => <Gallery title="Cats" />} />
             <Route
               path="/computers"
               render={() => <Gallery title="Computers" />}
+            />
+            <Route
+              path="/:newSearch"
+              render={() => <Gallery title={this.state.searchTerm} />}
             />
           </Switch>
         </div>
