@@ -4,8 +4,13 @@ import { NavLink } from "react-router-dom";
 const Nav = props => {
   //const { players, title } = props;
   return (
-    <nav class="main-nav">
+    <nav className="main-nav">
       <ul>
+        <li>
+          <NavLink to="/" activeClassName="somethingElse">
+            Home
+          </NavLink>
+        </li>
         <li>
           <NavLink to="/cats" activeClassName="somethingElse">
             Cats
