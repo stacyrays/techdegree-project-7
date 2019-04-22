@@ -1,30 +1,7 @@
 import React, { Component } from "react";
-import apiKey from "../config.js";
 
 class Home extends Component {
-  state = {
-    searchTerm: "triceratops"
-  };
-  handleSubmit = e => {
-    e.preventDefault();
-    let searchTerm = this.search.value;
-    let path = `search/${searchTerm}`;
-    this.props.history.push(path);
-    console.log("this is the search term " + searchTerm);
-  };
   render() {
-    fetch(
-      `https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${
-        this.state.searchTerm
-      }&per_page=24&format=json&nojsoncallback=1`
-    )
-      .then(function(response) {
-        return response.json();
-      })
-      .then(function(myJson) {
-        console.log(JSON.stringify(myJson));
-        console.log(JSON.stringify(myJson.photos.photo[0]));
-      });
     return (
       <div className="stuff">
         <h3>Search</h3>
