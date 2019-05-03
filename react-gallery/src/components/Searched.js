@@ -22,7 +22,11 @@ const Searched = props => {
       }.jpg`
     )*/
   );
-  return <ul className="gif-list">{images}</ul>;
+  return (
+    <div class="photo-container">
+      <ul className="gif-list">{images}</ul>
+    </div>
+  );
 };
 
 export default Searched;

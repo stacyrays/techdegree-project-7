@@ -2,8 +2,8 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 
 const Header = () => (
-  <header>
-    <ul className="main-nav">
+  <nav class="main-nav">
+    <ul>
       <li>
         <NavLink exact to="/" activeStyle={{ background: "tomato" }}>
           Home
@@ -19,7 +19,7 @@ const Header = () => (
         <NavLink to="/search/computers">Computers</NavLink>
       </li>
     </ul>
-  </header>
+  </nav>
 );
 
 export default Header;
