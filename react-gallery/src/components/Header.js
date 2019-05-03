@@ -1,13 +1,25 @@
 import React from "react";
-import PropTypes from "prop-types";
+import { NavLink } from "react-router-dom";
 
-const Header = () => {
-  //const { players, title } = props;
-  return (
-    <header>
-      <h1>React Gallery</h1>
-    </header>
-  );
-};
+const Header = () => (
+  <header>
+    <ul className="main-nav">
+      <li>
+        <NavLink exact to="/" activeStyle={{ background: "tomato" }}>
+          Home
+        </NavLink>
+      </li>
+      <li>
+        <NavLink to="/search/cats">Cats</NavLink>
+      </li>
+      <li>
+        <NavLink to="/search/dogs">Dogs</NavLink>
+      </li>
+      <li>
+        <NavLink to="/search/computers">Computers</NavLink>
+      </li>
+    </ul>
+  </header>
+);
 
 export default Header;
