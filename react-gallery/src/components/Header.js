@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 
 const Header = () => (
-  <nav class="main-nav">
+  <nav className="main-nav">
     <ul>
       <li>
         <NavLink exact to="/" activeStyle={{ background: "tomato" }}>
@@ -10,13 +10,13 @@ const Header = () => (
         </NavLink>
       </li>
       <li>
-        <NavLink to="/search/cats">Cats</NavLink>
+        <NavLink to="/cats">Cats</NavLink>
       </li>
       <li>
-        <NavLink to="/search/dogs">Dogs</NavLink>
+        <NavLink to="/dogs">Dogs</NavLink>
       </li>
       <li>
-        <NavLink to="/search/computers">Computers</NavLink>
+        <NavLink to="/computers">Computers</NavLink>
       </li>
     </ul>
   </nav>

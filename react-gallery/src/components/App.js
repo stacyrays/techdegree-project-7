@@ -20,21 +20,41 @@ export default class App extends Component {
     super();
     this.state = {
       images: [],
+      cats: [],
+      dogs: [],
+      computers: [],
       loading: true
     };
   }
 
   componentDidMount() {
     this.performSearch();
+    this.performSearch("cats");
+    this.performSearch("dogs");
+    this.performSearch("computers");
   }
 
-  performSearch = (topic = "cats") => {
+  performSearch = topic => {
     fetch(
       `https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${topic}&per_page=24&format=json&nojsoncallback=1`
     )
       .then(response => response.json())
       .then(responseData => {
-        this.setState({ images: responseData.photos.photo, loading: false });
+        if (topic === "cats") {
+          this.setState({ cats: responseData.photos.photo, loading: false });
+        } else if (topic === "dogs") {
+          this.setState({ dogs: responseData.photos.photo, loading: false });
+        } else if (topic === "computers") {
+          this.setState({
+            computers: responseData.photos.photo,
+            loading: false
+          });
+        } else {
+          this.setState({
+            images: responseData.photos.photo,
+            loading: false
+          });
+        }
       })
       .catch(error => {
         console.log("Error fetching and parsing data", error);
@@ -48,6 +68,18 @@ export default class App extends Component {
           <SearchForm onSearch={this.performSearch} />
           <Switch>
             <Route exact path="/" component={Home} />
+            <Route
+              path="/cats"
+              render={() => <Searched data={this.state.cats} />}
+            />
+            <Route
+              path="/dogs"
+              render={() => <Searched data={this.state.dogs} />}
+            />
+            <Route
+              path="/computers"
+              render={() => <Searched data={this.state.computers} />}
+            />
 
             <Route
               path="/search/:topic"

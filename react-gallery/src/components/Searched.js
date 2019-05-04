@@ -23,7 +23,7 @@ const Searched = props => {
     )*/
   );
   return (
-    <div class="photo-container">
+    <div className="photo-container">
       <ul className="gif-list">{images}</ul>
     </div>
   );
