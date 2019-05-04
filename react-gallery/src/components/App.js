@@ -67,23 +67,40 @@ export default class App extends Component {
           <SearchForm onSearch={this.performSearch} />
           <Switch>
             <Route exact path="/" component={Home} />
-            <Route
-              path="/cats"
-              render={() => <Gallery data={this.state.cats} />}
-            />
-            <Route
-              path="/dogs"
-              render={() => <Gallery data={this.state.dogs} />}
-            />
-            <Route
-              path="/computers"
-              render={() => <Gallery data={this.state.computers} />}
-            />
+            {this.state.loading ? (
+              <p>Loading...</p>
+            ) : (
+              <Route
+                path="/cats"
+                render={() => <Gallery data={this.state.cats} />}
+              />
+            )}
 
-            <Route
-              path="/search/:topic"
-              render={() => <Gallery data={this.state.images} />}
-            />
+            {this.state.loading ? (
+              <p>Loading...</p>
+            ) : (
+              <Route
+                path="/dogs"
+                render={() => <Gallery data={this.state.dogs} />}
+              />
+            )}
+
+            {this.state.loading ? (
+              <p>Loading...</p>
+            ) : (
+              <Route
+                path="/computers"
+                render={() => <Gallery data={this.state.computers} />}
+              />
+            )}
+            {this.state.loading ? (
+              <p>Loading...</p>
+            ) : (
+              <Route
+                path="/search/:topic"
+                render={() => <Gallery data={this.state.images} />}
+              />
+            )}
           </Switch>
         </div>
       </BrowserRouter>

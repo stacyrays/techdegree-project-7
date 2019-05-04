@@ -24,7 +24,7 @@ const Gallery = props => {
   );
   return (
     <div className="photo-container">
-      <ul className="gif-list">{images}</ul>
+      <ul>{images}</ul>
     </div>
   );
 };
