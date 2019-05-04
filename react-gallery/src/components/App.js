@@ -13,6 +13,7 @@ import Header from "./Header";
 import Home from "./Home";
 import SearchForm from "./SearchForm";
 import Gallery from "./Gallery";
+import NotFound from "./NotFound";
 
 export default class App extends Component {
   constructor() {
@@ -101,6 +102,7 @@ export default class App extends Component {
                 render={() => <Gallery data={this.state.images} />}
               />
             )}
+            <Route component={NotFound} />
           </Switch>
         </div>
       </BrowserRouter>

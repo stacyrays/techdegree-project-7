@@ -20,7 +20,6 @@ class SearchForm extends Component {
   render() {
     return (
       <div className="stuff">
-        <h3>Search for Anything</h3>
         <form className="search-form" onSubmit={this.handleSubmit}>
           <input
             type="text"

@@ -1,5 +1,6 @@
 import React from "react";
 import GalleryItem from "./GalleryItem";
+import NoImages from "./NoImages";
 
 const Gallery = props => {
   //let topic = match.params.topic;
@@ -7,21 +8,19 @@ const Gallery = props => {
   let data = props.data;
   let images;
   //images = data.map(image => console.log(image));
-  images = data.map(
-    image => (
+  if (data.length > 0) {
+    images = data.map(image => (
       <GalleryItem
         url={`https://farm${image.farm}.staticflickr.com/${image.server}/${
           image.id
         }_${image.secret}.jpg`}
         key={image.id}
       />
-    )
-    /*console.log(
-      `https://farm${image.farm}.staticflickr.com/${image.server}/${image.id}_${
-        image.secret
-      }.jpg`
-    )*/
-  );
+    ));
+  } else {
+    images = <NoImages />;
+  }
+
   return (
     <div className="photo-container">
       <ul>{images}</ul>
