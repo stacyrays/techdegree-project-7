@@ -12,8 +12,7 @@ import apiKey from "../config.js";
 import Header from "./Header";
 import Home from "./Home";
 import SearchForm from "./SearchForm";
-//import Teachers from "./Teachers";
-import Searched from "./Searched";
+import Gallery from "./Gallery";
 
 export default class App extends Component {
   constructor() {
@@ -70,20 +69,20 @@ export default class App extends Component {
             <Route exact path="/" component={Home} />
             <Route
               path="/cats"
-              render={() => <Searched data={this.state.cats} />}
+              render={() => <Gallery data={this.state.cats} />}
             />
             <Route
               path="/dogs"
-              render={() => <Searched data={this.state.dogs} />}
+              render={() => <Gallery data={this.state.dogs} />}
             />
             <Route
               path="/computers"
-              render={() => <Searched data={this.state.computers} />}
+              render={() => <Gallery data={this.state.computers} />}
             />
 
             <Route
               path="/search/:topic"
-              render={() => <Searched data={this.state.images} />}
+              render={() => <Gallery data={this.state.images} />}
             />
           </Switch>
         </div>

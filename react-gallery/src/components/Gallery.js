@@ -1,7 +1,7 @@
 import React from "react";
-import Image from "./Image";
+import GalleryItem from "./GalleryItem";
 
-const Searched = props => {
+const Gallery = props => {
   //let topic = match.params.topic;
   console.log(props.data);
   let data = props.data;
@@ -9,7 +9,7 @@ const Searched = props => {
   //images = data.map(image => console.log(image));
   images = data.map(
     image => (
-      <Image
+      <GalleryItem
         url={`https://farm${image.farm}.staticflickr.com/${image.server}/${
           image.id
         }_${image.secret}.jpg`}
@@ -29,4 +29,4 @@ const Searched = props => {
   );
 };
 
-export default Searched;
+export default Gallery;
