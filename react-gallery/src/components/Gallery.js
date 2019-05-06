@@ -3,11 +3,10 @@ import GalleryItem from "./GalleryItem";
 import NoImages from "./NoImages";
 
 const Gallery = props => {
-  //let topic = match.params.topic;
-  console.log(props.data);
+  //Add data to component
   let data = props.data;
   let images;
-  //images = data.map(image => console.log(image));
+  //Map over the images and drop each into a Gallery Item
   if (data.length > 0) {
     images = data.map(image => (
       <GalleryItem

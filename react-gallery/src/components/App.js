@@ -18,6 +18,7 @@ import NotFound from "./NotFound";
 export default class App extends Component {
   constructor() {
     super();
+    //Set necessary state
     this.state = {
       images: [],
       cats: [],
@@ -27,6 +28,7 @@ export default class App extends Component {
     };
   }
 
+  //Load images for the topics, to have them there for use
   componentDidMount() {
     this.performSearch();
     this.performSearch("cats");
@@ -34,6 +36,7 @@ export default class App extends Component {
     this.performSearch("computers");
   }
 
+  //Setup the function to perform searching the flickr api
   performSearch = topic => {
     this.setState({ loading: true });
     fetch(
@@ -63,6 +66,7 @@ export default class App extends Component {
   };
   render() {
     return (
+      //Add Browser Router and the routes
       <BrowserRouter>
         <div className="container">
           <Header />
