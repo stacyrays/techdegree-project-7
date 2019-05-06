@@ -35,6 +35,7 @@ export default class App extends Component {
   }
 
   performSearch = topic => {
+    this.setState({ loading: true });
     fetch(
       `https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${topic}&per_page=24&format=json&nojsoncallback=1`
     )
