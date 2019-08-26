@@ -6,11 +6,12 @@ class SearchForm extends Component {
     searchText: ""
   };*/
 
-  onSearchChange = e => {
-    this.setState({ searchText: e.target.value });
-  };
+  //onSearchChange = e => {
+  //this.setState({ searchText: e.target.value });
+  //};
   handleSubmit = e => {
     e.preventDefault();
+    //move this to Gallery component
     this.props.onSearch(this.topic.value);
     let searchTopic = this.topic.value;
     let path = `/search/${searchTopic}`;
@@ -24,6 +25,8 @@ class SearchForm extends Component {
           <input
             type="text"
             placeholder="Name"
+            //React.createRef - look up, so you don't have to keep rewriting this function
+            //Uncontrolled component (is fine but so i know and look into it)
             ref={input => (this.topic = input)}
           />
           <button type="submit">

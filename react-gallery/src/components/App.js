@@ -30,7 +30,6 @@ export default class App extends Component {
 
   //Load images for the topics, to have them there for use
   componentDidMount() {
-    this.performSearch();
     this.performSearch("cats");
     this.performSearch("dogs");
     this.performSearch("computers");
@@ -44,6 +43,8 @@ export default class App extends Component {
     )
       .then(response => response.json())
       .then(responseData => {
+        //if (responseData.photos) then
+        //debugger;
         if (topic === "cats") {
           this.setState({ cats: responseData.photos.photo, loading: false });
         } else if (topic === "dogs") {
@@ -77,7 +78,7 @@ export default class App extends Component {
               <p>Loading...</p>
             ) : (
               <Route
-                path="/cats"
+                path="/search/cats"
                 render={() => <Gallery data={this.state.cats} />}
               />
             )}
@@ -86,7 +87,7 @@ export default class App extends Component {
               <p>Loading...</p>
             ) : (
               <Route
-                path="/dogs"
+                path="/search/dogs"
                 render={() => <Gallery data={this.state.dogs} />}
               />
             )}
@@ -95,7 +96,7 @@ export default class App extends Component {
               <p>Loading...</p>
             ) : (
               <Route
-                path="/computers"
+                path="/search/computers"
                 render={() => <Gallery data={this.state.computers} />}
               />
             )}
