@@ -1,11 +1,5 @@
 import React, { Component } from "react";
-import {
-  BrowserRouter,
-  Route,
-  Switch,
-  withRouter,
-  NavLink
-} from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import apiKey from "../config.js";
 
 //App components
@@ -24,7 +18,7 @@ export default class App extends Component {
       cats: [],
       dogs: [],
       computers: [],
-      loading: true
+      loading: true,
     };
   }
 
@@ -36,13 +30,13 @@ export default class App extends Component {
   }
 
   //Setup the function to perform searching the flickr api
-  performSearch = topic => {
+  performSearch = (topic) => {
     this.setState({ loading: true });
     fetch(
       `https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${topic}&per_page=24&format=json&nojsoncallback=1`
     )
-      .then(response => response.json())
-      .then(responseData => {
+      .then((response) => response.json())
+      .then((responseData) => {
         //if (responseData.photos) then
         //debugger;
         if (topic === "cats") {
@@ -52,16 +46,16 @@ export default class App extends Component {
         } else if (topic === "computers") {
           this.setState({
             computers: responseData.photos.photo,
-            loading: false
+            loading: false,
           });
         } else {
           this.setState({
             images: responseData.photos.photo,
-            loading: false
+            loading: false,
           });
         }
       })
-      .catch(error => {
+      .catch((error) => {
         console.log("Error fetching and parsing data", error);
       });
   };
