@@ -2,14 +2,14 @@ import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 
 class SearchForm extends Component {
-  /*state = {
-    searchText: ""
-  };*/
+  state = {
+    searchText: "Search for something",
+  };
 
-  //onSearchChange = e => {
-  //this.setState({ searchText: e.target.value });
-  //};
-  handleSubmit = e => {
+  onSearchChange = (e) => {
+    this.setState({ searchText: e.target.value });
+  };
+  handleSubmit = (e) => {
     e.preventDefault();
     //move this to Gallery component
     this.props.onSearch(this.topic.value);
@@ -24,10 +24,10 @@ class SearchForm extends Component {
         <form className="search-form" onSubmit={this.handleSubmit}>
           <input
             type="text"
-            placeholder="Name"
+            placeholder={this.state.searchText}
             //React.createRef - look up, so you don't have to keep rewriting this function
             //Uncontrolled component (is fine but so i know and look into it)
-            ref={input => (this.topic = input)}
+            ref={(input) => (this.topic = input)}
           />
           <button type="submit">
             <svg

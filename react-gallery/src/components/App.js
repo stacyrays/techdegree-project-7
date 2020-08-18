@@ -40,9 +40,15 @@ export default class App extends Component {
         //if (responseData.photos) then
         //debugger;
         if (topic === "cats") {
-          this.setState({ cats: responseData.photos.photo, loading: false });
+          this.setState({
+            cats: responseData.photos.photo,
+            loading: false,
+          });
         } else if (topic === "dogs") {
-          this.setState({ dogs: responseData.photos.photo, loading: false });
+          this.setState({
+            dogs: responseData.photos.photo,
+            loading: false,
+          });
         } else if (topic === "computers") {
           this.setState({
             computers: responseData.photos.photo,
